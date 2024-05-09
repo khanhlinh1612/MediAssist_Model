@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Heart-Attack Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 40%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            margin-left: 10px;
+            font-size: 16px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .prediction {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #28a745;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Heart-Attack Prediction</h1>
+    <h1 class="prediction">Alo {{ prediction }}</h1>
+    <div>
+        <form method="post" action="/predict">
+            <label for="age">Tuổi:</label>
+            <input value="{{age}}" type="number" name="age">
+
+            <label for="sex">Giới tính:</label>
+            <input value="{{sex}}" type="number" name="sex">
+
+            <label for="cp">Dạng đau ngực - Chest Pain:</label>
+            <input value="{{cp}}" type="number" name="cp">
+
+            <label for="trestbps">Huyết áp lúc nghỉ (mmHg):</label>
+            <input value="{{trestbps}}" type="number" name="trestbps">
+
+            <label for="chol">Mỡ trong máu - Cholesterol (mg/dl):</label>
+            <input value="{{chol}}" type="number" name="chol">
+
+            <label for="fbs">Đường huyết (mg/dl):</label>
+            <input value="{{fbs}}" type="number" name="fbs">
+
+            <label for="restecg">Kết quả điện tâm đồ - ECG:</label>
+            <input value="{{restecg}}" type="number" name="restecg">
+
+            <label for="thalach">Nhịp tim tối đa đạt được:</label>
+            <input value="{{thalach}}" type="number" name="thalach">
+
+            <label for="exang">Đau thắt ngực khi tập thể dục:</label>
+            <input value="{{exang}}" type="number" name="exang">
+
+            <label for="oldpeak">Độ suy giảm sóng ST - Oldpeak (mm):</label>
+            <input value="{{oldpeak}}" type="number" step="0.1" name="oldpeak">
+
+            <label for="slope">Độ dốc đoạn sóng ST - Slope:</label>
+            <input value="{{slope}}" type="number" name="slope">
+
+            <label for="ca">Số lượng mạch máu lớn ở tim:</label>
+            <input value="{{ca}}" type="number" name="ca">
+
+            <label for="thal">Mức độ Thalassemia:</label>
+            <input value="{{thal}}" type="number" name="thal">
+
+            <div>
+                <button type="submit">Predict</button>
+                <a href="/">Reset</a>
+            </div>
+        </form>
+    </div>
+    <h1 class="prediction">{{ prediction }}</h1>
+</body>
+
+</html>
